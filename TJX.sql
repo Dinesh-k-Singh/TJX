@@ -76,4 +76,12 @@ INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [Valid
 GO
 
 
+INSERT [dbo].[Products] ([Name], [Description], [Price]) VALUES (N'T-shirt', N'Mens t-shirt, size medium', CAST(19.99 AS Decimal(18, 2)))
+INSERT [dbo].[Products] ([Name], [Description], [Price]) VALUES (N'Jeans', N'Womens jeans, size small', CAST(45.99 AS Decimal(18, 2)))
+INSERT [dbo].[Products] ([Name], [Description], [Price]) VALUES (N'Hat', N'Summer hat, one size', CAST(10.99 AS Decimal(18, 2)))
+INSERT [dbo].[Products] ([Name], [Description], [Price]) VALUES (N'Coat', N'Unisex winter jacket, size large', CAST(80.99 AS Decimal(18, 2)))
+INSERT [dbo].[Products] ([Name], [Description], [Price]) VALUES (N'Trainers', N'Womens fashion footwear, size 37', CAST(55.99 AS Decimal(18, 2)))
+GO
+
+
 
