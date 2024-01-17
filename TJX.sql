@@ -60,5 +60,20 @@ CREATE TABLE [dbo].[Products](
 ) ON [PRIMARY]
 GO
 
+-- INSERTING DATA INTO THE TABLES
+INSERT [dbo].[Country] ([Name], [CountryCode], [CurrencyCode]) VALUES (N'United States of America', N'USA', N'USD')
+INSERT [dbo].[Country] ([Name], [CountryCode], [CurrencyCode]) VALUES (N'Deutschland', N'DEU', N'EUR')
+INSERT [dbo].[Country] ([Name], [CountryCode], [CurrencyCode]) VALUES (N'Australia', N'AUS', N'AUD')
+GO
+
+INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [ValidToDate]) VALUES (N'USD', CAST(1.24 AS Decimal(18, 2)), CAST(N'2024-01-01' AS Date),NULL)
+INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [ValidToDate]) VALUES (N'EUR', CAST(1.14 AS Decimal(18, 2)), CAST(N'2024-01-01' AS Date),NULL)
+INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [ValidToDate]) VALUES (N'AUD', CAST(1.92 AS Decimal(18, 2)), CAST(N'2024-01-01' AS Date),NULL)
+
+INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [ValidToDate]) VALUES (N'USD', CAST(1.29 AS Decimal(18, 2)), CAST(N'2023-12-01' AS Date), CAST(N'2023-12-31' AS Date))
+INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [ValidToDate]) VALUES (N'EUR', CAST(1.16 AS Decimal(18, 2)), CAST(N'2023-12-01' AS Date), CAST(N'2023-12-31' AS Date))
+INSERT [dbo].[Currency] ([CurrencyCode], [ExchangeRate], [ValidFromDate], [ValidToDate]) VALUES (N'AUD', CAST(1.87 AS Decimal(18, 2)), CAST(N'2023-12-01' AS Date), CAST(N'2023-12-31' AS Date))
+GO
+
 
 
