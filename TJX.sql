@@ -37,7 +37,7 @@ CREATE TABLE [dbo].[Currency](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CurrencyCode] [nvarchar](3) NOT NULL,
 	[ExchangeRate] [decimal](18, 2) NULL,
-	[ValidFromDate] [date] NULL,
+	[ValidFromDate] [date] NOT NULL,
 	[ValidToDate] [date] NULL
 ) ON [PRIMARY]
 GO
