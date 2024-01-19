@@ -1,1 +1,3 @@
-
+TJX.sql is the  database project. Simply execute this script to create database objects.
+TJXChallenge.API.zip is the .net core api project. Specify database connection strings in Data.cs file. It also contains Unit test project.
+UI- Angular project is in TJXSubmission repository.
