@@ -84,14 +84,16 @@ INSERT [dbo].[Products] ([Name], [Description], [Price]) VALUES (N'Trainers', N'
 GO
 --CREATING SP
 CREATE PROCEDURE [dbo].[GetProductsByCountryCode]   
-@CountryCode NVARCHAR(3)  
-AS  
-BEGIN  
-DECLARE @Conversion DECIMAL(18,2)  
-SELECT @Conversion = ExchangeRate FROM Country C inner join Currency CR on C.CurrencyCode = CR.CurrencyCode  
-WHERE CountryCode = @CountryCode AND CONVERT(DATE,GETDATE()) BETWEEN CR.ValidFromDate AND ISNULL(CR.ValidToDate, CONVERT(DATE,GETDATE()))  
+@CountryCode NVARCHAR(3)    
+AS    
+BEGIN    
+DECLARE @Conversion DECIMAL(18,2)    
+SELECT @Conversion = ExchangeRate FROM Country C inner join Currency CR on C.CurrencyCode = CR.CurrencyCode    
+WHERE CountryCode = @CountryCode AND CONVERT(DATE,GETDATE()) BETWEEN CR.ValidFromDate AND ISNULL(CR.ValidToDate, CONVERT(DATE,GETDATE()))    
   
-SELECT Id,Name, Description, CAST(Price*@Conversion AS DECIMAL(18,2)) as ConvertedPrice FROM Products  
-  
+DECLARE @Currency VARCHAR(10)  
+SELECT @Currency =  CurrencyCode FROM Country where CountryCode = @CountryCode  
+SELECT Id,Name, Description, @Currency + ' ' + CAST(CAST(Price*@Conversion AS DECIMAL(18,2)) AS NVARCHAR(MAX)) as ConvertedPrice FROM Products    
+    
 END
 
